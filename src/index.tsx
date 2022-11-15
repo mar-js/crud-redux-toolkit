@@ -1,17 +1,18 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
-import App from './App';
+import { STORE } from './redux/store';
+import { App } from './layout/app';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
+import { GlobalStyle } from './assets/styles';
 
-const container = document.getElementById('root')!;
-const root = createRoot(container);
+const CONTAINER = document.getElementById('root')!;
+const ROOT = createRoot(CONTAINER);
 
-root.render(
+ROOT.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={STORE}>
+      <GlobalStyle />
       <App />
     </Provider>
   </React.StrictMode>
